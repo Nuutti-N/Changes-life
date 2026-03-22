@@ -27,8 +27,10 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:  # When 
 # After succesful login, send this to frontend
 def create_access_token(subject: Union[str, Any], expires_delta: int = None):
     if expires_delta is not None:
+        # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(UTC) + expires_delta
     else:
+        # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(
             UTC) + timedelta(minutes=access_token_expire_minutes)
     to_encode = {"exp": expires_delta, "sub": str(subject)}
@@ -39,8 +41,10 @@ def create_access_token(subject: Union[str, Any], expires_delta: int = None):
 # After succesful login, send this too
 def create_refresh_token(subject: Union[str, Any], expires_delta: int = None):
     if expires_delta is not None:
+        # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(UTC) + expires_delta
     else:
+        # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(UTC) + timedelta(minutes=refresh_token)
     to_encode = {"exp": expires_delta, "sub": str(subject)}
     return jwt.encode(to_encode, jwt_refresh_key, algorithm)
