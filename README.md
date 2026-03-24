@@ -1,5 +1,8 @@
 # GEOME 🗺️
 
+## Project idea
+- 
+
 
 ## Backend 
 - Python
@@ -10,7 +13,3 @@
 
 ## LLM 
 - Anthropic API
-
-
-## Project idea
-- 
