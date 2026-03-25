@@ -5,7 +5,7 @@ from pydantic import ValidationError
 from datetime import datetime, UTC
 from jose import jwt, JWTError
 from database import engine
-from Models import (
+from models import (
     UserOut,
     UserAuth,
     User,
@@ -23,7 +23,7 @@ from utils import (
 )
 
 router = APIRouter()
-oauth2_scheme = OAuth2PasswordBearer(tokenurl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 def get_session():
@@ -60,7 +60,7 @@ async def Login(form_data: OAuth2PasswordRequestForm = Depends(), session: Sessi
         "refresh_token": create_refresh_token(existing_user.username)
     }
 reuseable_oauth = OAuth2PasswordBearer(
-    tokenURL="/Login",
+    tokenUrl="/Login",
     scheme_name="JWT"
 )
 
