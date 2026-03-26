@@ -45,7 +45,7 @@ async def register(data: UserAuth, session: Session = Depends(get_session)):
     return new_user
 
 
-@router.post("/Login", response_model=token, tags=["login"])
+@router.post("/Login", response_model=token, tags=["Login"])
 async def Login(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
     statement = select(User).where(User.username == form_data.username)
     existing_user = session.exec(statement).first()
@@ -56,7 +56,7 @@ async def Login(form_data: OAuth2PasswordRequestForm = Depends(), session: Sessi
         raise HTTPException(
             status_code=401, detail="Incorrect username or password")
     return {
-        "acces_token": create_access_token(existing_user.username),
+        "access_token": create_access_token(existing_user.username),
         "refresh_token": create_refresh_token(existing_user.username)
     }
 reuseable_oauth = OAuth2PasswordBearer(
@@ -71,11 +71,11 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
             token, jwt_key, algorithms=[algorithm]
         )
         token_data = TokenPayLoad(**payload)
-        if datetime.fromtimestamp(token_data.exp) < datetime.now(UTC):
+        if datetime.fromtimestamp(token_data.exp) < datetime.now():
             raise HTTPException(status_code=401, detail="Token expired", headers={
                 "WWW-Authenticate": "Bearer"
             })
-    except (jwt.JwtError, ValidationError):
+    except (jwt.JWTError, ValidationError):
         raise HTTPException(status_code=403, detail="Could not validate credentials", headers={
             "WWW-Authenticate": "Bearer"
         })
@@ -87,6 +87,6 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
     return new_user
 
 
-@router.get("/Your", summary="Get details of currently logged in user", response_model=UserOut, tags=["Information"])
+@router.get("/Your", summary="Get details of currently logged in user", response_model=UserOut, tags=["Login information"])
 async def get_mer(user: User = Depends(get_current_user)):
     return user
