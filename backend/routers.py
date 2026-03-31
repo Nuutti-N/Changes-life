@@ -60,5 +60,20 @@ async def delete_my_facts(fact_id: int, current_user=Depends(get_current_user)):
     try:
         data = supabase.table("fact_checks").delete().eq(
             "id", fact_id).eq("user_id", current_user.id).execute()
+        if not data.data:
+            raise HTTPException(status_code=404, detail="History not found")
         return {"deleted": True}
+    except HTTPException:
+        raise
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.delete("/delete_all_history/{fact_id}", tags=["Verify"])
+async def delet_all_facts(fact_id: int, current_user=Depends(get_current_user)):
+    try:
+        data = supabase.table("fact_checks").delete().eq("id", fact_id).eq(
+            "user_id", current_user.id).execute()
+        return {"deleted": len(data.data)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
