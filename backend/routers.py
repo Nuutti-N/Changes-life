@@ -75,5 +75,8 @@ async def delet_all_facts(fact_id: int, current_user=Depends(get_current_user)):
         data = supabase.table("fact_checks").delete().eq("id", fact_id).eq(
             "user_id", current_user.id).execute()
         return {"deleted": len(data.data)}
-    except Exception as e:
+    except HTTPException:
+        raise
+    except Exception as e:  # If any other error happens, store it in 'e'
+        # Send 500 error with the error message
         raise HTTPException(status_code=500, detail=str(e))
