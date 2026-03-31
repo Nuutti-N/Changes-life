@@ -43,7 +43,7 @@ async def verify_fact(claim: str, current_user=Depends(get_current_user)):
 
     return {
         "claim": claim,
-        "is_true": results == "True",
+        "is_true": results == "TRUE",
         "status": results
     }
 
