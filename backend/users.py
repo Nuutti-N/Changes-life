@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException, APIRouter
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlmodel import Session, select
 from pydantic import ValidationError
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from jose import jwt, JWTError
 from backend.database import engine
 from backend.models import (
@@ -33,16 +33,19 @@ def get_session():
 
 @router.post("/Signup", response_model=UserOut, tags=["Sign up"])
 async def register(data: UserAuth, session: Session = Depends(get_session)):
-    statement = select(User).where(User.username == data.username)
-    existing_user = session.exec(statement).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Username exists")
-    hashed_pass = hash_password(data.password)
-    new_user = User(username=data.username, password=hashed_pass)
-    session.add(new_user)
-    session.commit()
-    session.refresh(new_user)
-    return new_user
+    try:
+        statement = select(User).where(User.username == data.username)
+        existing_user = session.exec(statement).first()
+        if existing_user:
+            raise HTTPException(status_code=400, detail="Username exists")
+        hashed_pass = hash_password(data.password)
+        new_user = User(username=data.username, password=hashed_pass)
+        session.add(new_user)
+        session.commit()
+        session.refresh(new_user)
+        return new_user
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.post("/Login", response_model=token, tags=["Login"])
@@ -71,7 +74,7 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
             token, jwt_key, algorithms=[algorithm]
         )
         token_data = TokenPayLoad(**payload)
-        if datetime.fromtimestamp(token_data.exp) < datetime.now():
+        if datetime.fromtimestamp(token_data.exp, tz=timezone.utc) < datetime.now(timezone.utc):
             raise HTTPException(status_code=401, detail="Token expired", headers={
                 "WWW-Authenticate": "Bearer"
             })
