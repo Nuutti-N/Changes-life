@@ -3,14 +3,15 @@ from typing import Union, Any
 from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
 import os
+from .config import settings
 from dotenv import load_dotenv
 load_dotenv()
 
 access_token_expire_minutes = 30
 refresh_token = 60 * 24 * 7
-algorithm = "HS256"
-jwt_key = os.environ["jwt_key"]
-jwt_refresh_key = os.environ["jwt_refresh_key"]
+algorithm = settings.algorithm
+jwt_key = settings.jwt_key
+jwt_refresh_key = settings.jwt_refresh_key
 
 # machine (cryptcontext) use a special way to scramble calle brycpt and if you find old ways update automatically
 context = CryptContext(schemes=["bcrypt"], deprecated="auto")
