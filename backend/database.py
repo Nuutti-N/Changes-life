@@ -1,10 +1,8 @@
 from sqlmodel import SQLModel, create_engine, Session
-import os
 from .config import settings
-from dotenv import load_dotenv
-load_dotenv()
 
 
+# Don't check here .env url! Config already checked it! Use settings method! You don't need manual checking.
 engine = create_engine(settings.database_url, echo=True)
 SQLModel.metadata.create_all(engine)
 

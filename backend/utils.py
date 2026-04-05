@@ -1,11 +1,9 @@
+from backend.config import settings
 from jose import jwt
 from typing import Union, Any
 from datetime import datetime, timedelta, timezone
 from passlib.context import CryptContext
-import os
-from .config import settings
-from dotenv import load_dotenv
-load_dotenv()
+
 
 access_token_expire_minutes = 30
 refresh_token = 60 * 24 * 7
