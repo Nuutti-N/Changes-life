@@ -12,6 +12,10 @@ app = FastAPI()
 # Add CORS
 app.add_middleware(
     CORSMiddleware,
+    allow_origin=[
+        # react, I will add later it, in this project, and then customer can see and buy things.
+        "http://localhost:3000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
