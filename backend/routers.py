@@ -2,12 +2,13 @@ from google import genai
 from backend.supabase_client import supabase
 from backend.users import get_current_user
 from fastapi import FastAPI, HTTPException, APIRouter, Depends, status
+from .config import settings
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
 router = APIRouter()
-client = genai.Client(api_key=os.getenv("gemini_api_key"))
+client = genai.Client(api_key=settings.gemini_api_key)
 
 
 @router.get("/Welcome", tags=["Welcome"])
