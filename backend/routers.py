@@ -57,11 +57,7 @@ async def get_my_facts(current_user=Depends(get_current_user)):
     try:
         data = supabase.table("fact_checks").select(
             "*").eq("user_id", current_user.id).execute()
-        if not data.data:
-            raise HTTPException(status_code=404, detail="History not found")
         return data.data
-    except HTTPException:
-        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -85,11 +81,7 @@ async def delet_all_facts(current_user=Depends(get_current_user)):
     try:
         data = supabase.table("fact_checks").delete().eq(
             "user_id", current_user.id).execute()
-        if not data.data:
-            raise HTTPException(status_code=404, detail="History not found")
-        return {"deleted": len(data.data)}
-    except HTTPException:
-        raise
+        return {"deleted": 0}
     except Exception as e:  # If any other error happens, store it in 'e'
         # Send 500 error with the error message
         raise HTTPException(status_code=500, detail=str(e))
