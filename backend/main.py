@@ -1,5 +1,6 @@
 from backend.config import settings
 from fastapi.middleware.cors import CORSMiddleware
+from backend.logger import logger
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlmodel import select, SQLModel
 from backend.models import User, UserOut
@@ -28,4 +29,6 @@ app.include_router(routers)
 
 @app.on_event("startup")
 async def on_startup():
+    logger.info("Application starting up")
     SQLModel.metadata.create_all(engine)
+    logger.info("Database tables created successfully")

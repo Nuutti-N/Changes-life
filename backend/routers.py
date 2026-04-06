@@ -3,6 +3,7 @@ from backend.supabase_client import supabase
 from backend.users import get_current_user
 from fastapi import HTTPException, APIRouter, Depends, status
 from backend.config import settings
+import logging
 
 router = APIRouter()
 client = genai.Client(api_key=settings.gemini_api_key)

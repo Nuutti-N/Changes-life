@@ -21,6 +21,7 @@ from backend.utils import (
     jwt_key,
     algorithm
 )
+from backend.logger import logger
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
