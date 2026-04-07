@@ -10,7 +10,7 @@ router = APIRouter()
 client = genai.Client(api_key=settings.gemini_api_key)
 
 
-@router.get("/Welcome", tags=["Welcome"])
+@router.get("/welcome", tags=["Welcome"])
 async def Welcome():
     logger.info("Welcome_endpoint_called")
     return {"message": "Welcome to the AI Agent"}
@@ -94,8 +94,8 @@ async def delete_my_facts(fact_id: int, current_user=Depends(get_current_user)):
             raise HTTPException(
                 status_code=500, detail="Unexpected response from database")
         if data.data == []:
-            logger.error(
-                "delete_history_erro user_id=%s fact_id=%s error=%s", current_user.id, fact_id)
+            logger.warning(
+                "delete_history_error user_id=%s fact_id=%s", current_user.id, fact_id)
             raise HTTPException(
                 status_code=404, detail="no matching history item")
         logger.info("delete_history_success user_id=%s fact_id=%s",
@@ -103,12 +103,12 @@ async def delete_my_facts(fact_id: int, current_user=Depends(get_current_user)):
         return {"deleted": True}
     except Exception as e:
         logger.error(
-            "delete_history_error user_id=%s fact_id=%s error=%s", current_user.id, fact_id)
+            "delete_history_error user_id=%s fact_id=%s error=%s", current_user.id, e,  fact_id, exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.delete("/delete_all_history/", tags=["Verify"])
-async def delet_all_facts(current_user=Depends(get_current_user)):
+async def delete_all_facts(current_user=Depends(get_current_user)):
     try:
         logger.info("delete_all_history_requestes user_id=%s", current_user.id)
         data = supabase.table("fact_checks").delete().eq(
