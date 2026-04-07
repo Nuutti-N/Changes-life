@@ -1,3 +1,4 @@
+
 from google import genai
 from backend.supabase_client import supabase
 from backend.users import get_current_user
@@ -11,7 +12,7 @@ client = genai.Client(api_key=settings.gemini_api_key)
 
 @router.get("/Welcome", tags=["Welcome"])
 async def Welcome():
-    logger.info("Welcome to the AI Agent")
+    logger.info("Welcome_endpoint_called")
     return {"message": "Welcome to the AI Agent"}
 
 
@@ -22,7 +23,8 @@ async def verify_text(user_message: str, current_user=Depends(get_current_user))
             model="gemini-3-flash-preview",
             contents=user_message
         )
-        logger.info(f"AI explain: {user_message}")
+        logger.info("chat_request user_id=%s message_len=%s",
+                    current_user.id, len(user_message))
         return {"AI explain":  response.text}
     except Exception as e:
         logger.error(f"Error in the program: {e}", exc_info=True)
@@ -42,7 +44,8 @@ async def verify_fact(claim: str, current_user=Depends(get_current_user)):
             contents=prompt
         )
         results = response.text.strip().upper()
-        logger.info(f"Fact check result for user {current_user.id}: {results}")
+        logger.info("Fact check result for user user_id=%s status=%s",
+                    current_user.id, results)
 
         supabase.table("fact_checks").insert({
             "user_id": current_user.id,
@@ -65,8 +68,11 @@ async def get_my_facts(current_user=Depends(get_current_user)):
     try:
         data = supabase.table("fact_checks").select(
             "*").eq("user_id", current_user.id).execute()
+        logger.info(
+            "history_request user_id=%s items=%s", current_user.id, len(data.data or []))
         return data.data
     except Exception as e:
+        logger.error(f"Problem loading history: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 
