@@ -19,16 +19,15 @@ async def Welcome():
 @router.post("/chat", tags=["Verify"])
 async def verify_text(user_message: str, current_user=Depends(get_current_user)):
     try:
+        logger.info("chat_request user_id=%s message_len=%s",
+                    current_user.id, len(user_message))
         response = client.models.generate_content(
             model="gemini-3-flash-preview",
             contents=user_message
         )
-        logger.info("chat_request user_id=%s message_len=%s",
-                    current_user.id, len(user_message))
         return {"AI explain":  response.text}
     except Exception as e:
         logger.error(f"Error in the program: {e}", exc_info=True)
-        logger.error(f"Error during signup: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 
