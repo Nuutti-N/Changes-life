@@ -25,6 +25,8 @@ async def verify_text(user_message: str, current_user=Depends(get_current_user))
             model="gemini-3-flash-preview",
             contents=user_message
         )
+        logger.info("chat_request_succees user_id=%s message_len=%s",
+                    current_user.id, len(response.text or ""))
         return {"AI explain":  response.text}
     except Exception as e:
         logger.error("chat_error user_id=%s error=%s",
@@ -99,6 +101,7 @@ async def delet_all_facts(current_user=Depends(get_current_user)):
         logger.info("delete_all_history_requestes user_id=%s", current_user.id)
         data = supabase.table("fact_checks").delete().eq(
             "user_id", current_user.id).execute()
+        logger.info("delete_all_history_succees user_id=%s", current_user.id)
         return {"deleted": "All history deleted"}
     except Exception as e:  # If any other error happens, store it in 'e'
         # Send 500 error with the error message
