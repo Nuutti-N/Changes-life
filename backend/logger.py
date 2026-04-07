@@ -1,4 +1,4 @@
-import logging
+import logging  # gives tools to make logging
 import sys
 
 
@@ -10,7 +10,7 @@ console_handler = logging.StreamHandler(sys.stdout)
 console_handler.setLevel(logging.INFO)
 
 formatter = logging.Formatter(
-    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    f"%(asctime)s | %(name)s | %(levelname)s | %(message)s"
 )
 console_handler.setFormatter(formatter)
 
