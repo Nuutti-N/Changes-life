@@ -1,5 +1,5 @@
 from sqlmodel import SQLModel, create_engine, Session
-from .config import settings
+from backend.config import settings
 
 
 # Don't check here .env url! Config already checked it! Use settings method! You don't need manual checking.
