@@ -103,11 +103,11 @@ async def delete_my_facts(fact_id: int, current_user=Depends(get_current_user)):
         return {"deleted": True}
     except Exception as e:
         logger.error(
-            "delete_history_error user_id=%s fact_id=%s error=%s", current_user.id, e,  fact_id, exc_info=True)
+            "delete_history_error user_id=%s fact_id=%s error=%s", current_user.id, fact_id, e, exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
-@router.delete("/delete_all_history/", tags=["Verify"])
+@router.delete("/delete_all_history/", tags=["verify"])
 async def delete_all_facts(current_user=Depends(get_current_user)):
     try:
         logger.info("delete_all_history_requestes user_id=%s", current_user.id)
