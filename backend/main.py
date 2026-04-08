@@ -30,5 +30,4 @@ app.include_router(routers)
 @app.on_event("startup")
 async def on_startup():
     logger.info("Application starting up")
-    SQLModel.metadata.create_all(engine)
     logger.info("Database tables created successfully")
