@@ -1,4 +1,4 @@
-from backend import models
+import backend.models
 from backend.database import engine
 from sqlmodel import SQLModel
 import os
@@ -16,9 +16,8 @@ def set_deest_env():
     os.environ["supabase_key"] = "test_supabase_key"
     os.environ["gemini_api_key"] = "test_gemini_api_key"
 
-
-SQLModel.metadata.drop_all(engine)
-SQLModel.metadata.create_all(engine)
+    SQLModel.metadata.drop_all(engine)
+    SQLModel.metadata.create_all(engine)
 
 
 @pytest.fixture()
