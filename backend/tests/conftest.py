@@ -1,9 +1,9 @@
 import backend.models
-from backend.database import engine
-from sqlmodel import SQLModel
-import os
-import pytest
 from fastapi.testclient import TestClient
+import pytest
+from sqlmodel import SQLModel
+from backend.database import engine
+import os
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -15,9 +15,6 @@ def set_deest_env():
     os.environ["supabase_url"] = "http://localhost:54321"
     os.environ["supabase_key"] = "test_supabase_key"
     os.environ["gemini_api_key"] = "test_gemini_api_key"
-
-    SQLModel.metadata.drop_all(engine)
-    SQLModel.metadata.create_all(engine)
 
 
 @pytest.fixture()
