@@ -1,8 +1,5 @@
 
 
-from tokenize import Token
-
-
 def test_signup(client):
     response = client.post(
         "/signup", json={"username": "testuser", "password": "testpass"})
