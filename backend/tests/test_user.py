@@ -12,6 +12,8 @@ def test_signup(client):
 
 
 def test_login(client):
+    client.post(
+        "/signup", json={"username": "testuser", "password": "testpass"})
     response = client.post(
         "/login", data={"username": "testuser", "password": "testpass"})
     assert response.status_code == 200
@@ -36,7 +38,7 @@ def test_works_with_token(client):
     # sign up first
     response = client.post(
         "/signup", json={"username": "testuser", "password": "testpass"})
-    assert response.status_code == 400
+    assert response.status_code == 200
     # then login
     login = client.post(
         "/login", data={"username": "testuser", "password": "testpass"})
