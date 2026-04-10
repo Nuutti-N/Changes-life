@@ -1,4 +1,4 @@
-# GEOME 🗺️
+# Clarify your text or code or anything, and check it can you use it!
 
 ## Project idea
 - 
