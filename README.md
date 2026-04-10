@@ -1,5 +1,5 @@
 # Trust AI responses
-- Can you actually trust what AI told you! Verdict
+- Can you actually trust what AI told you! Verdict, paste any AI-generated text, code and get an instant analysis.
   
 
 
@@ -13,11 +13,12 @@
 
 
 ## Tech stack
+  Layer | Technology | Notes
 - Backend | Fastapi
 - Frontend | React
 - LLM | Gemini (test only), however if you want to test something, firstly I recommend take free, because, you dont really know is this worht it for your.
-- Database | Supabase, and use Postgresql
-- Deploy | Railway | Even if you have backend and frontend, I recommend to deploy both to same place.
+- Database | Supabase (PostgreSQL) | history analysis/answers and user data. 
+- Deploy | Railway | Even if you have backend and frontend, both in same place (railway).
 
 
 ## Prerequisites
