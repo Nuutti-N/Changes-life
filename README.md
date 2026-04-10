@@ -14,9 +14,16 @@
 - Frontend | React
 - LLM | Gemini (test only), however if you want to test something, firstly I recommend take free, because, you dont really know is this worht it for your.
 - Database | Supabase, and use Postgresql
-- Deploy | Railway | Even if you have backend and frontend, I recommend to deploy both to same place. 
+- Deploy | Railway | Even if you have backend and frontend, I recommend to deploy both to same place.
 
 
+## Prerequisites
+- Python version = 3.11 <
+- Supabase database, but you can use something else, if you have more experience.
+- Postman (for testing endpoints)
+- Gemini api key
+- Database URL in supabase
+- Supabase project url and key. you have two choices anon key or service role key. if you have enabled RLS then use anon key, otherwise use service role key. 
 
 ## Tools where I test my api (postman)
 
