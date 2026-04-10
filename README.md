@@ -24,6 +24,3 @@
 - Gemini api key
 - Database URL in supabase
 - Supabase project url and key. you have two choices anon key or service role key. if you have enabled RLS then use anon key, otherwise use service role key. 
-
-
-## 📈 Project Status
