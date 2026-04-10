@@ -5,15 +5,18 @@
 - this idea came to my mind, because I see a lot of people trust and use to ai, that way, as they don't really understand what is truth and can you use it.
 - This project work this way, you take text anywhere what AI made, and then you don't know, can I use it, and what if this take more strugle in my life, so this app will, solve just your problem.
 
-## Backend 
+
+## Features 
+
+# Backend 
 - Python
 - Framework Fastapi
 
-## Frontend 
+# Frontend 
 - React
 - I dont have any experience to react yet, because I started to backend three months ago, but I will handle so fast it. 
 
-## LLM (Large Language Models)
+# LLM (Large Language Models)
 - Anthropic API
 - I use gemini, because its free and, I will test firstly what I need, and then I check, if I want choice something else LLM. 
 - When you use free LLM disadvantage is sometimes you get limit and you will wait, when limit is over.
