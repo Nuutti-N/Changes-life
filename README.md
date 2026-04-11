@@ -34,7 +34,7 @@
 
 ## Getting started
 - Clone the repository
-- git clone https://github.com/Nuutti-N/Fullstack-project.git
+ `git clone https://github.com/Nuutti-N/Fullstack-project.git`
 
 
 ## 📈 Project Status
