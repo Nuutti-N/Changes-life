@@ -16,13 +16,14 @@
 
 
 ## Tech stack
-  Layer | Technology | Notes
-- Backend | Fastapi | async endpoints
-- Frontend | React | 
-- LLM | Gemini (test only), however if you want to test something, firstly I recommend take free, because, you dont really know is this worht it for your.
-- Database | Supabase (PostgreSQL) | history analysis/answers and user data. 
-- Deploy | Railway | Even if you have backend and frontend, both in same place (railway).
 
+Layer     | Technology          | Notes                              |
+|-----------|---------------------|------------------------------------|
+| Backend   | FastAPI             | Async endpoints                    |
+| Frontend  | React               |                                    |
+| LLM       | Gemini              | Used for content analysis (first take free version for test)       |
+| Database  | Supabase (Postgres) | User data and history/analysis storage     |
+| Deploy    | Railway             | Both backend and frontend deployed together |
 
 ## Prerequisites
 - Python version = 3.11 <
