@@ -36,19 +36,12 @@ Layer     | Technology          | Notes                              |
 
 ## Environment variables
 
-ENV FILE 
-
-Gemini 
-Gemini_API_KEY = "your_gemini_api_key_here"
-or whatevr LLM you use. 
-
-Supabase
-
-DATABASE_URL=your_supabase_database_url
-
-SUPABASE_URL="https://your-project-ref.supabase.co"
-
-SUPABASE_KEY="your_supabase_key_here"
+```env
+GEMINI_API_KEY= "your_gemini_api_key" or whatever LLM you use.
+SUPABASE_URL= "your_supabase_project_url"
+SUPABASE_KEY= "your_supabase_key_here"
+DATABASE_URL=your_database_url
+```
 
 Which supabase key should I use?
 
