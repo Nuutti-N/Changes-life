@@ -54,7 +54,14 @@ Layer     | Technology          | Notes                              |
 
 - The API will be running at http://localhost:8000
 
-  
+## Deployment 
+
+
+## Deployment
+- Setup Railway account and link to GitHub repository.
+- Create environment variables for your backend: `DATABASE_URL`, `GEMINI_API_KEY`, etc.
+- Deploy using the Railway dashboard.
+- 
 ## 📈 Project Status
 - MVP is useful and working. Text input to trust verdict is fully functional and deployed.
 
