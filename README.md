@@ -44,7 +44,9 @@ Gemini_API_KEY = "your_gemini_api_key_here"
 Supabase
 
 DATABASE_URL=your_supabase_database_url
+
 SUPABASE_URL="https://your-project-ref.supabase.co"
+
 SUPABASE_KEY="your_supabase_key_here"
 
 Which supabase key should I use?
