@@ -67,8 +67,7 @@ Steps
 - MVP is useful and working. Text input to trust verdict is fully functional and deployed.
 
 - Current focus: Improving documentation, fixing bugs, and making the project easier to understand for contributions and potential collaborators.
-- Frontend is fully working two weeks later.
-- The goal is add AI agents later, when frontend is ready. two weeks later more information for it, nobody want to miss this chance.
+- I will add AI Agents soon!
 
 ## Contributing
 - Contributions are welome, If you have any ideas how to improve, as better LLM prompts, or new analysis features, whatever.
