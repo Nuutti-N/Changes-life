@@ -13,7 +13,8 @@
 
 ## Features 
 - Paste & Analyze | Submit any AI generated text/code for instant trust evaluation
-- Risk Detection
+- Risk Detection | find potentially misleading, outdated or harmful content.
+- Trust score | Everyone get information, what is really truth and how close is it truth, examples if you get zero, you cannot use it. 50% is mid, you can use it, only if you check more information for our websites, 100%, you can use it. 
 - LLM Powered Analysis | uses gemini to evaluate AI-generated content 
 
 
