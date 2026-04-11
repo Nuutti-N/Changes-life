@@ -34,9 +34,26 @@
 
 ## Getting started
 - Clone the repository
- `git clone https://github.com/Nuutti-N/Fullstack-project.git`
+`git clone https://github.com/Nuutti-N/Fullstack-project.git`
+`cd MVP`
 
+- Backend setup
+`cd backend`
 
+`python -m venv venv`
+
+` venv\Scripts\Activate` # windows
+
+`source venv/bin/activate` # linux and mac
+
+`pip install -r requirements.txt`
+
+`fastapi dev main.py` 
+`uvicorn main:app --reload`
+
+- The API will be running at http://localhost:8000
+
+  
 ## 📈 Project Status
 - MVP is useful and working. Text input to trust verdict is fully functional and deployed.
 
