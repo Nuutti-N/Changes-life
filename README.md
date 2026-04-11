@@ -60,12 +60,9 @@ Steps
 
 1. Push your code to Github
 2. Connect your repo to https://railway.com 
+3. Set all environment variables from your .env in the railway dashboard
+4. Railway auto deploy on every push to github. 
 
-
-- Setup Railway account and link to GitHub repository.
-- Create environment variables for your backend: `DATABASE_URL`, `GEMINI_API_KEY`, etc.
-- Deploy using the Railway dashboard.
-- 
 ## 📈 Project Status
 - MVP is useful and working. Text input to trust verdict is fully functional and deployed.
 
