@@ -12,7 +12,9 @@
 - This project work this way, you take text anywhere what AI made, and then you don't know, can I use it, and what if this take more strugle in my life, so this app will, solve just your problem
 
 ## Features 
-
+- Paste & Analyze | Submit any AI generated text/code for instant trust evaluation
+- Risk Detection
+- LLM Powered Analysis | uses gemini to evaluate AI-generated content 
 
 
 ## Tech stack
@@ -37,9 +39,8 @@
 
 - Current focus: Improving documentation, fixing bugs, and making the project easier to understand for contributions and potential collaborators.
 - Frontend is fully working two weeks later.
+- The goal is add AI agents later, when frontend is ready. two weeks later more information for it, nobody want to miss this chance.
 
 ## Contributing
 - Contributions are welome, If you have any ideas how to improve, as better LLM prompts, or new analysis features, whatever.
 
-
-## License
