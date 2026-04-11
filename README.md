@@ -29,4 +29,16 @@
 - Postman (for testing endpoints)
 - Gemini api key
 - Database URL in supabase
-- Supabase project url and key. you have two choices anon key or service role key. if you have enabled RLS then use anon key, otherwise use service role key. 
+- Supabase project url and key. you have two choices anon key or service role key. if you have enabled RLS then use anon key, otherwise use service role key.
+
+## 📈 Project Status
+- MVP is useful and working. Text input to trust verdict is fully functional and deployed.
+
+- Current focus: Improving documentation, fixing bugs, and making the project easier to understand for contributions and potential collaborators.
+- Frontend is fully working two weeks later.
+
+## Contributing
+- Contributions are welome, If you have any ideas how to improve, as better LLM prompts, or new analysis features, whatever.
+
+
+## License
