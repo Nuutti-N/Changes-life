@@ -49,8 +49,8 @@ async def verify_fact(text: str, current_user=Depends(get_current_user)):
         {{
             "trust_score": <number 0-100>,
             "verdict": <can use|let's explore more|do not use>,
-            "risks": "<risk, risk, risk">,
-            "pros": "<pros, pros, pros>",
+            "risks": "[<risk>, <risk>]",
+            "pros": "[<pros>, <pros>]",
             "recommend": "<what the user should do>",
         }}
         """
@@ -58,16 +58,17 @@ async def verify_fact(text: str, current_user=Depends(get_current_user)):
             model="gemini-3-flash-preview",
             contents=prompt
         )
-        results = response.text.strip().upper()
+
+        data = json.loads(response.text.strip())
         logger.info("Fact check result for user user_id=%s status=%s",
-                    current_user.id, results)
+                    current_user.id, data["verdict"])
 
         supabase.table("fact_checks").insert({
             "user_id": current_user.id,
             "claim": text,
-            "answer": results
+            "answer": data["verdict"]
         }).execute()
-        data = json.loads(response.text.strip())
+
         return {
             "claim": text,
             "score": data["trust_score"],
