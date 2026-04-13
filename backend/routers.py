@@ -40,7 +40,7 @@ async def verify_fact(text: str, current_user=Depends(get_current_user)):
     try:
         logger.info(
             f"Fact check requested by user {current_user.id}: {text[:50]}")
-        prompt = f"""You are a AI generated character, and tell people, can their use AI text/code. Your task to find potentially misleading, outdated or harmful content.\n\n Respond how many percent possibility to use ai generated text or code, and give for me information where is the propably mistakes and what is good.
+        prompt = f"""You are a AI generated evaluator. Your job is to analyze AI generate text or code and determine if it is safe to trust and use. Your task to identify any misleading, outdated or harmful content.\n\n Give a trust scofe from 0 to 100 to use ai generated text or code, and give for me information where is the propably mistakes and what is good.
         Analyze this text:
         {text}
         
