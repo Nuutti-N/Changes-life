@@ -2,14 +2,14 @@
 from backend.config import settings
 from fastapi.middleware.cors import CORSMiddleware
 from backend.logger import logger
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status, Request
+from fastapi.responses import JSONResponse
 from sqlmodel import select, SQLModel
 from backend.models import User, UserOut
 from backend.database import engine, get_session
 from backend.users import get_current_user, router as users_router
 from backend.routers import router as routers
 from slowapi.errors import RateLimitExceeded
-from slowapi import _rate_limit_exceeded_handler
 from backend.rating_limiter import limiter
 
 app = FastAPI()
@@ -32,7 +32,14 @@ app.include_router(users_router)
 app.include_router(routers)
 
 app.state.limiter = limiter
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    return JSONResponse(
+        status_code=429,
+        content={"detail": "Too many request. Please slow down and try again later."}
+    )
 
 
 @app.on_event("startup")
