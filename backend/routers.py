@@ -2,9 +2,10 @@
 from google import genai
 from backend.supabase_client import supabase
 from backend.users import get_current_user
-from fastapi import HTTPException, APIRouter, Depends, status
+from fastapi import HTTPException, APIRouter, Depends, status, Request
 from backend.config import settings
 from backend.logger import logger
+from backend.rating_limiter import limiter
 import json
 
 router = APIRouter()
@@ -36,7 +37,8 @@ async def verify_text(user_message: str, current_user=Depends(get_current_user))
 
 
 @router.post("/analyze", tags=["verify"])
-async def verify_fact(text: str, current_user=Depends(get_current_user)):
+@limiter.limit("5/minute")
+async def verify_fact(request: Request, text: str, current_user=Depends(get_current_user)):
     try:
         logger.info(
             f"Fact check requested by user {current_user.id}: {text[:50]}")
