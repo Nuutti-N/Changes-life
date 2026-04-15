@@ -1,13 +1,8 @@
-
-from backend.config import settings
 from fastapi.middleware.cors import CORSMiddleware
 from backend.logger import logger
-from fastapi import FastAPI, Depends, HTTPException, status, Request
+from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from sqlmodel import select, SQLModel
-from backend.models import User, UserOut
-from backend.database import engine, get_session
-from backend.users import get_current_user, router as users_router
+from backend.users import router as users_router
 from backend.routers import router as routers
 from slowapi.errors import RateLimitExceeded
 from backend.rating_limiter import limiter
