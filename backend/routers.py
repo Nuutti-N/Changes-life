@@ -60,7 +60,8 @@ async def verify_fact(request: Request, text: str = Query(min_length=5, max_leng
             contents=prompt
         )
 
-        data = json.loads(response.text.strip())
+        data = json.loads(response.text.replace(
+            "```json", "").replace("```", "").strip())
         logger.info("Fact check result for user user_id=%s status=%s",
                     current_user.id, data["verdict"])
 
@@ -78,6 +79,11 @@ async def verify_fact(request: Request, text: str = Query(min_length=5, max_leng
             "pros": data["pros"],
             "recommend": data["recommend"],
         }
+    except json.JSONDecodeError as e:
+        logger.error("analyze_error_json user_id=%s error=%s",
+                     current_user.id, e, exc_info=True)
+        raise HTTPException(
+            status_code=500, detail="Bad requests, invalid JSON")
     except Exception as e:
         logger.error("fact_chat_error user_id=%s error=%s",
                      current_user.id, e, exc_info=True)
