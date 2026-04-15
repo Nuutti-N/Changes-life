@@ -19,12 +19,12 @@ class UserOut(BaseModel):
     username: str
 
 
-class token(BaseModel):
+class Token(BaseModel):
     access_token: str
     refresh_token: str
 
 
-class TokenPayLoad(SQLModel):
+class TokenPayload(SQLModel):
     sub: str = None  # Username or Id
     exp: int = None  # Expiration
 

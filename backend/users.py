@@ -9,8 +9,8 @@ from backend.models import (
     UserOut,
     UserAuth,
     User,
-    token,
-    TokenPayLoad,
+    Token,
+    TokenPayload,
     SystemUser
 )
 from backend.utils import (
@@ -50,7 +50,7 @@ async def register(data: UserAuth, session: Session = Depends(get_session)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.post("/login", response_model=token, tags=["login"])
+@router.post("/login", response_model=Token, tags=["login"])
 async def Login(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
     statement = select(User).where(User.username == form_data.username)
     existing_user = session.exec(statement).first()
@@ -79,7 +79,7 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
         payload = jwt.decode(
             token, jwt_key, algorithms=[algorithm]
         )
-        token_data = TokenPayLoad(**payload)
+        token_data = TokenPayload(**payload)
         if datetime.fromtimestamp(token_data.exp, tz=timezone.utc) < datetime.now(timezone.utc):
             raise HTTPException(status_code=401, detail="Token expired", headers={
                 "WWW-Authenticate": "Bearer"
