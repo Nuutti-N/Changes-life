@@ -47,7 +47,7 @@ async def register(data: UserAuth, session: Session = Depends(get_session)):
         raise
     except Exception as e:
         logger.error(f"Error during signup:", e, exc_info=True)
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @router.post("/login", response_model=Token, tags=["login"])

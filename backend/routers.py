@@ -19,7 +19,8 @@ async def Welcome():
 
 
 @router.post("/chat", tags=["verify"])
-async def verify_text(user_message: str = Query(min_length=1, max_length=2000), current_user=Depends(get_current_user)):
+@limiter.limit("5/minute")
+async def verify_text(request: Request, user_message: str = Query(min_length=1, max_length=2000), current_user=Depends(get_current_user)):
     try:
         logger.info("chat_request user_id=%s message_len=%s",
                     current_user.id, len(user_message))
@@ -125,6 +126,8 @@ async def delete_my_facts(fact_id: int = Path(ge=1), current_user=Depends(get_cu
         logger.info("delete_history_success user_id=%s fact_id=%s",
                     current_user.id, fact_id)
         return {"deleted": True}
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(
             "delete_history_error user_id=%s fact_id=%s error=%s", current_user.id, fact_id, e, exc_info=True)

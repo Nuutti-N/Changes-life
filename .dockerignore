@@ -32,7 +32,8 @@ Frontend/
 .idea/
 .vscode/
 
-# Docs
+# Docs and config
 Procfile
 docker-compose.yml
 dockerfile
+*.md
