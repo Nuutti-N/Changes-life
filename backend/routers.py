@@ -64,12 +64,16 @@ async def verify_fact(request: Request, text: str = Query(min_length=5, max_leng
         data = json.loads(response.text.replace(
             "```json", "").replace("```", "").strip())
         logger.info("Fact check result for user user_id=%s status=%s",
-                    current_user.id, data["verdict"])
+                    current_user.id, data["trust_score"], data["verdict"], data["risks"], data["pros"], data["recommend"])
 
         supabase.table("fact_checks").insert({
             "user_id": current_user.id,
             "claim": text,
-            "answer": data["verdict"]
+            "trust_score": data["trust_score"],
+            "verdict": data["verdict"],
+            "risks": data["risks"],
+            "pros": data["pros"],
+            "recommend": data["recommend"]
         }).execute()
 
         return {
