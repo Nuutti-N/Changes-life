@@ -6,8 +6,17 @@ from backend.users import router as users_router
 from backend.routers import router as routers
 from slowapi.errors import RateLimitExceeded
 from backend.rating_limiter import limiter
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("Application starting up")
+    yield
+    logger.info("Application shutting down")
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 # Add CORS
@@ -36,9 +45,3 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
         status_code=429,
         content={"detail": "Too many request. Please slow down and try again later."}
     )
-
-
-@app.on_event("startup")
-async def on_startup():
-    logger.info("Application starting up")
-    logger.info("Database tables created successfully")
