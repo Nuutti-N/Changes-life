@@ -32,3 +32,7 @@ class TokenPayload(SQLModel):
 class SystemUser(SQLModel):
     id: int
     username: str
+
+
+class RefreshRequest(BaseModel):
+    refresh_token: str

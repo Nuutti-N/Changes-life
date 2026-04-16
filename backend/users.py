@@ -11,7 +11,8 @@ from backend.models import (
     User,
     Token,
     TokenPayload,
-    SystemUser
+    SystemUser,
+    RefreshRequest
 )
 from backend.utils import (
     hash_password,
@@ -19,7 +20,8 @@ from backend.utils import (
     create_access_token,
     create_refresh_token,
     jwt_key,
-    algorithm
+    algorithm,
+    jwt_refresh_key
 )
 from backend.logger import logger
 
@@ -100,3 +102,28 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
 async def get_me(user: User = Depends(get_current_user)):
     logger.info("User data: username %s | id: %s", user.username, user.id)
     return user
+
+
+@router.post("/refresh", response_model=Token, tags=["Requests"])
+async def refresh(data: RefreshRequest, session: Session = Depends(get_session)):
+    try:
+        payload = jwt.decode(data.refresh_token,
+                             jwt_refresh_key, algorithms=[algorithm])
+        token_data = TokenPayload(**payload)
+        if datetime.fromtimestamp(token_data.exp, tz=timezone.utc) < datetime.now(timezone.utc):
+            raise HTTPException(status_code=401, detail="Token expired", headers={
+                "WWW-Authenticate": "Bearer"
+            })
+    except HTTPException:
+        raise
+    except (jwt.JWTError, ValidationError):
+        raise HTTPException(
+            status_code=403, detail="Could not validate credentials")
+    statement = select(User).where(User.username == token_data.sub)
+    new_user = session.exec(statement).first()
+    if new_user is None:
+        raise HTTPException(status_code=400, detail="Could not find user")
+    return {
+        "access_token": create_access_token(new_user.username),
+        "refresh_token": create_refresh_token(new_user.username)
+    }

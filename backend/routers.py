@@ -53,7 +53,7 @@ async def verify_fact(request: Request, text: str = Query(min_length=5, max_leng
             "verdict": <can use|let's explore more|do not use>,
             "risks": "[<risk>, <risk>]",
             "pros": "[<pros>, <pros>]",
-            "recommend": "<what the user should do>",
+            "recommend": "<what the user should do>"
         }}
         """
         response = client.models.generate_content(
