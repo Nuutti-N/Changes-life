@@ -86,6 +86,8 @@ async def get_current_user(token: str = Depends(reuseable_oauth), session: Sessi
             raise HTTPException(status_code=401, detail="Token expired", headers={
                 "WWW-Authenticate": "Bearer"
             })
+    except HTTPException:
+        raise
     except (jwt.JWTError, ValidationError):
         raise HTTPException(status_code=403, detail="Could not validate credentials", headers={
             "WWW-Authenticate": "Bearer"
@@ -104,7 +106,7 @@ async def get_me(user: User = Depends(get_current_user)):
     return user
 
 
-@router.post("/refresh", response_model=Token, tags=["Requests"])
+@router.post("/refresh", response_model=Token, tags=["requests"])
 async def refresh(data: RefreshRequest, session: Session = Depends(get_session)):
     try:
         payload = jwt.decode(data.refresh_token,
