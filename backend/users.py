@@ -26,7 +26,6 @@ from backend.utils import (
 from backend.logger import logger
 
 router = APIRouter()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 @router.post("/signup", response_model=UserOut, tags=["sign up"])
