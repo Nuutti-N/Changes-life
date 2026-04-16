@@ -13,7 +13,7 @@ client = genai.Client(api_key=settings.gemini_api_key)
 
 
 @router.get("/welcome", tags=["welcome"])
-async def Welcome():
+async def welcome():
     logger.info("Welcome_endpoint_called")
     return {"message": "Welcome to the AI Agent"}
 

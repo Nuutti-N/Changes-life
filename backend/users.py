@@ -52,7 +52,7 @@ async def register(data: UserAuth, session: Session = Depends(get_session)):
 
 
 @router.post("/login", response_model=Token, tags=["login"])
-async def Login(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
+async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
     statement = select(User).where(User.username == form_data.username)
     existing_user = session.exec(statement).first()
     if existing_user is None:
