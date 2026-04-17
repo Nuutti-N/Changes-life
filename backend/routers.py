@@ -94,11 +94,11 @@ async def verify_fact(request: Request, text: str = Query(min_length=5, max_leng
 
 
 @router.get("/history", tags=["verify"])
-async def get_my_facts(current_user=Depends(get_current_user)):
+async def get_my_facts(current_user=Depends(get_current_user), limit: int = Query(20, ge=0), offset: int = Query(0, ge=0)):
     try:
         logger.info("History_check_requested_user user_id=%s", current_user.id)
         data = supabase.table("fact_checks").select(
-            "*").eq("user_id", current_user.id).execute()
+            "*").eq("user_id", current_user.id).range(offset, offset + limit - 1).execute()
         logger.info(
             "history_request user_id=%s items=%s", current_user.id, len(data.data or []))
         return data.data
