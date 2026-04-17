@@ -3,7 +3,7 @@ from backend.config import settings
 
 
 # Don't check here .env url! Config already checked it! Use settings method! You don't need manual checking.
-engine = create_engine(settings.database_url, echo=True)
+engine = create_engine(settings.database_url, echo=False)
 
 
 def get_session():
