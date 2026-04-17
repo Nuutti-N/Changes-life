@@ -129,5 +129,5 @@ These are non-obvious problems that require reading multiple files to discover. 
 - Test coverage is thin. Only the `/welcome` endpoint is tested. The auth flow, `/analyze`, `/history`, and delete endpoints have no tests.
 
 **Production Readiness**
-- `echo=True` in `database.py` prints every SQL query to stdout. Remove before deploying.
+- `echo=True` in `database.py` prints every SQL query to stdout. Remove before deploying. ✅
 - No pagination on `/history`. A user with many records will cause a full table scan and a large response payload. Add `limit` and `offset` query params.
