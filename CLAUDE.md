@@ -73,10 +73,10 @@ MVP/
 └── Frontend/
     └── frontend/           # Vite + React app (in progress)
         ├── src/
-        │   ├── pages/      # Login.jsx, Analyze.jsx, History.jsx (not yet created)
-        │   ├── components/ # PrivateRoute.jsx (not yet created)
+        │   ├── pages/      # Login.jsx, Analyze.jsx, History.jsx — NEXT UP. Not yet created. User will write each as a minimal function returning <h1>, with `export default`.
+        │   ├── components/ # PrivateRoute.jsx (not yet created — after pages/)
         │   ├── api/        # client.js — DONE. axios instance with baseURL + token interceptor
-        │   ├── App.jsx     # Router setup — IN PROGRESS. BrowserRouter+Routes wrapper done, next: add 3 Route entries for /login /analyze /history, then create pages/ and PrivateRoute
+        │   ├── App.jsx     # Router setup — DONE ✅. BrowserRouter + Routes + 3 Route entries for /login /analyze /history. Imports for Login/Analyze/History still missing (will error until pages are created in next session).
         │   └── main.jsx    # Entry point
         └── package.json
 ```
@@ -120,6 +120,25 @@ web: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
 ```
 
 `echo=True` in `database.py` logs every SQL statement — disable this before deploying to production.
+
+## Frontend Teaching Progress
+
+The user is learning React step-by-step. Do not write frontend code for them — explain, let them write, review.
+
+**Completed lessons:**
+- ✅ Lesson 1 — React Router basics: `<BrowserRouter>` (wrapper), `<Routes>` (container), `<Route path=".." element={<X />} />` (rule). No commas between JSX siblings. User wrote the 3 Route entries in App.jsx themselves.
+
+**Next lesson (pick up here):**
+- 🔜 Lesson 2 — Creating page components. Tasks for the user:
+  1. Create `src/pages/Login.jsx`, `src/pages/Analyze.jsx`, `src/pages/History.jsx`
+  2. Each: a function returning a simple `<h1>` + `export default`
+  3. Explain WHY `export default` is needed (open question already asked — user will answer next session)
+  4. After pages exist: add the 3 `import` lines at the top of `App.jsx`
+- 🔜 Lesson 3 (after) — Build `components/PrivateRoute.jsx` to protect `/analyze` and `/history`
+
+**Teaching style reminders:**
+- User mentioned dyslexia-friendly explanations — use simple visual analogies (hotel/keys worked well), repeat concepts, break things into small numbered steps.
+- Always ask comprehension-check questions before moving on.
 
 ## Known Issues & Gotchas
 
