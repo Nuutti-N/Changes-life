@@ -1,11 +1,16 @@
 import { useState } from "react"
+import api from "../api/client"
 
 function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(username, password)
+        const data = new URLSearchParams()
+        data.append("username", username)
+        data.append("password", password)
+        const response = await api.post("/login", data)
+        console.log(response.data)
     }
     return (
         <form onSubmit={handleSubmit}>

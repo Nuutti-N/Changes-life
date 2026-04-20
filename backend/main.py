@@ -26,7 +26,6 @@ app.add_middleware(
         # react, I will add later it, in this project, and then customer can see and buy things.
         "http://localhost:3000",
         "http://localhost:5173",
-        "http://mydomainsoon.com",
     ],
     allow_credentials=True,
     allow_methods=["GET", "DELETE", "POST"],
