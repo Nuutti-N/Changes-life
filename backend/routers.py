@@ -6,7 +6,7 @@ from backend.users import get_current_user
 from fastapi import HTTPException, APIRouter, Depends, Request, Query, Path
 from backend.config import settings
 from backend.logger import logger
-from backend.rating_limiter import limiter
+from backend.rate_limiter import limiter
 import json
 
 router = APIRouter()
