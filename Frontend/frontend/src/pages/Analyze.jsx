@@ -5,17 +5,18 @@ import api from "../api/client"
 
 function Analyze() {
     const [text, setText] = useState("")
+    const [results, setResults] = useState(null)
     async function handleSubmit(e) {
         e.preventDefault()
     }
 
 
     return <form onSubmit={handleSubmit}>
-        <textarea>
+        <textarea
             value={text}
             onChange={e => setText(e.target.value)}
 
-        </textarea>
+        />
         <button type="submit">Analyze</button>
     </form>
 }
