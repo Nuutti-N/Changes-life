@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Analyze from "./pages/Analyze"
+import History from "./pages/History"
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/analyze" element={<Analyze />} />
-        {/* <Route path="/history" element={<History />} /> */}
+        <Route path="/history" element={<History />} />
 
 
       </Routes>
