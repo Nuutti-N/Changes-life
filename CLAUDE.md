@@ -147,13 +147,19 @@ The user is learning React step-by-step. Do not write frontend code for them —
 - NEXT tiny step (not done yet): `localStorage.setItem("token", response.data.access_token)` — save token so page refresh keeps user logged in.
 
 **Upcoming lessons (user's roadmap):**
-- 🔜 Lesson 4 — Finish Login: save token to localStorage + `useNavigate` redirect after login.
-- 🔜 Lesson 5 — Signup page (`src/pages/Signup.jsx`) — same shape as Login but hits `POST /signup`.
-- 🔜 Lesson 6 — Analyze page (`src/pages/Analyze.jsx`) — textarea + POST to `/analyze` + render the trust score/verdict.
+- 🔜 Lesson 4 — Finish Login: save token to localStorage + `useNavigate` redirect after login. ✅
+- 🔜 Lesson 5 — Signup page (`src/pages/Signup.jsx`) — same shape as Login but hits `POST /signup`. ✅
+- 🔜 Lesson 6 — Analyze page (`src/pages/Analyze.jsx`) — textarea + POST to `/analyze` + render the trust score/verdict. ✅ 
 - 🔜 Lesson 7 — History page (`src/pages/History.jsx`) — GET `/history` on mount, list results, delete buttons.
 - 🔜 Lesson 8 — New Chat page — POST `/chat`, render Gemini reply.
 - 🔜 Lesson 9 — `components/PrivateRoute.jsx` to protect `/analyze`, `/history`, chat routes.
-- 🔜 Lesson 10 — Fix the `'bearer' + token` bug in `api/client.js` (should be `'Bearer ' + token` with capital B + space).
+- 🔜 Lesson 10 — Fix the `'bearer' + token` bug in `api/client.js` (should be `'Bearer ' + token` with capital B + space). ✅
+- 🔜 Lesson 11 - Style the frontend - even 30 lines of css changes everything.
+- 🔜 lesson 12 - Finish the History page - complete the MVP loop.
+- 🔜 lesson 13 - add <PrivateRoute> - protect/analyze and/history.
+- 🔜 lessons 14 - add logout + show current user - essential ux
+
+
 
 **Teaching style reminders:**
 - User is dyslexic. KEEP MESSAGES VERY SHORT (~10 lines max). Cut analogies to bone. Split big explanations across turns.
