@@ -4,30 +4,37 @@ import { useState, useEffect } from "react"
 import api from "../../api/client"
 
 function NavBar() {
+    const [user, setUser] = useState(null)
     const [Loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const navigate = useNavigate()
     useEffect(() => {
-        function handleLogout() {
+        async function loadUser() {
             setLoading(true)
             try {
                 setError("")
-                localStorage.removeItem('token')
-                const response = api.get("/your")
-                response.data
+                const response = await api.get("/your")
+                setUser(response.data)
             }
             catch (err) {
-
+                setError("Could not load user.")
             }
             finally {
                 setLoading(false)
             }
-            navigate("/login")
         }
+        loadUser()
     }, [])
+    function handleLogout() {
+        localStorage.removeItem('token')
+        navigate("/login")
+    }
 
 
-    return (<> <nav> <button onClick={handleLogout}>Log out</button></nav>
+
+    return (<>
+        <nav>  {user &&
+            <span>How can I help you, {user.username}</span>}<button onClick={handleLogout}>Log out</button></nav>
         <div className="navbar">
             <h1>Trust the machine</h1>
             <ul className="nav-menu">
