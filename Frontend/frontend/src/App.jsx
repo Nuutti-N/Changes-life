@@ -4,10 +4,12 @@ import Signup from "./pages/Signup"
 import Analyze from "./pages/Analyze"
 import History from "./pages/History"
 import PrivateRoute from "./components/PrivateRoutes"
+import NavBar from "./components/Navbar/NavBar"
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/analyze" element={<Analyze />} />
