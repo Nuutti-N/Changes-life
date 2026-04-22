@@ -1,7 +1,8 @@
-import "./NavBar.css"
+
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../../api/client"
+import "./NavBar.css"
 
 function NavBar() {
     const [user, setUser] = useState(null)
@@ -36,10 +37,10 @@ function NavBar() {
         <nav>  {user &&
             <span>How can I help you, {user.username}</span>}<button onClick={handleLogout}>Log out</button></nav>
         <div className="navbar">
-            <h1>Trust the machine</h1>
+            <h1>Geome</h1>
             <ul className="nav-menu">
                 <li>Home</li>
-                <li>About</li>
+                <li>Get started</li>
                 <li>Analyze</li>
             </ul>
         </div>
