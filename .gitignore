@@ -27,6 +27,7 @@ build/
 # IDE and editor files 
 .idea/
 .vscode/
+prompt.md
 
 # LOGS
 *.log

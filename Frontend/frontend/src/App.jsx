@@ -8,12 +8,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/analyze" element={<Analyze />} />
+          <Route path="/history" element={<History />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/analyze" element={<Analyze />} />
-        <Route path="/history" element={<History />} />
-
-
       </Routes>
     </BrowserRouter>)
 }
