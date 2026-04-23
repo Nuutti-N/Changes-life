@@ -70,11 +70,32 @@ Label {
     display: left;
 }
 
+
+.username-input {
+    height: 40px;
+    padding: 12px;
+    border: 1px solid hsl(214, 32%, 91%);
+    border-radius: 7px;
+    width: 100%;
+
+}
+
+
 .password-row {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 12px;
+}
+
+.password-input {
+    width: 40px;
+    padding: 12px;
+    border: 1px solid hsl(214, 32%, 91%);
+    border-radius: 7px;
+    width: 100%;
+
+
 }
 
 .forgot-link {

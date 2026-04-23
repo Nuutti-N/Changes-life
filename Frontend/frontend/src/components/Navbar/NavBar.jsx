@@ -1,10 +1,12 @@
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../../api/client"
 import "./NavBar.css"
 
 function NavBar() {
+    const location = useLocation()
+    if (location.pathname === "/login" || location.pathname === "/signup") return null
     const [user, setUser] = useState(null)
     const [Loading, setLoading] = useState(false)
     const [error, setError] = useState("")
