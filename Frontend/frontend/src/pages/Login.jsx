@@ -39,10 +39,13 @@ function Login() {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
-                <div className="password-row">
-                    <label htmlFor="password">Password</label>
-                    <button type="button" className="forgot.link">Forgot password</button>
+                <div className="form-group">
+                    <div className="password-row">
+                        <label htmlFor="password">Password</label>
+                        <button type="button" className="forgot-link">Forgot password</button>
+                    </div>
                 </div>
+                <div className="password-wrapper"></div>
                 <input
                     id="password"
                     type={showPassword ? "text" : "password"}
