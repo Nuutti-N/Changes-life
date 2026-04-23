@@ -2,7 +2,7 @@ import { useState } from "react"
 import api from "../api/client"
 import { useNavigate, useSearchParams, Link } from "react-router-dom"
 import "../components/Auth/login.css"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, ArrowRight } from "lucide-react"
 
 
 function Login() {
@@ -54,8 +54,10 @@ function Login() {
                 />
                 <button
                     type="button"
-                    className="password-toggle" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
-                <button type="submit">Log in</button>
+                    onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
+                <button type="submit" className="auth-submit">Log in
+                    <ArrowRight />
+                </button>
                 {/* divider */}
                 <div className="auth-divider">
                     <div className="line" />

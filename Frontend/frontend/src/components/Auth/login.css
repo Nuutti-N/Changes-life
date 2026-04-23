@@ -77,6 +77,33 @@ Label {
     gap: 12px;
 }
 
+.auth-submit {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: hsl(234, 89%, 58%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.auth-submit:hover {
+    transition: background-color 0.15s ease;
+}
+
+.auth-submit svg {
+    width: 16px;
+    height: 16px;
+}
+
 /* Divider */
 .auth-divider {
     display: flex;
