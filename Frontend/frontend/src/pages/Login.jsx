@@ -74,9 +74,10 @@ function Login() {
                         Google
                     </button>
                 </div>
-
-                <p>Don't have an account?</p>
-                <Link to="/signup" className="auth-link">Sign up</Link>
+                <div className="auth-toggle">
+                    <p>Don't have an account?</p>
+                    <Link to="/signup" className="auth-link">Sign up</Link>
+                </div>
             </form>
         </div>
     )

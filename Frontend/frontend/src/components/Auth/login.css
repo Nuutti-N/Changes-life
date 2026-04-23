@@ -48,15 +48,16 @@ form {
 
 
 .auth-header h1 {
-    margin: 0px;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
     letter-spacing: -0.02em;
     color: #0f172a;
 
 }
 
 .auth-header p {
-    margin: 6px 0 18px;
+    margin: 8px;
     font-size: 14px;
     color: #0f172a;
 
@@ -79,4 +80,32 @@ Label {
     align-items: baseline;
     justify-content: space-between;
     gap: 12px;
+}
+
+
+.auth-toggle {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.auth-link {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    transition: text-decoration 0.15s ease;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
