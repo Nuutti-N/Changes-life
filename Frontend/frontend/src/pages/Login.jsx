@@ -1,12 +1,14 @@
 import { useState } from "react"
 import api from "../api/client"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import "../components/Login/login.css"
 
 function Login() {
     const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
+    const [isLogin, setIsLogin] = useState(searchParams.get("tab") !== "signup")
     const [username, setUsername] = useState("")
-    const [showPassword, setShowPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const [password, setPassword] = useState("")
     async function handleSubmit(e) {
         e.preventDefault()
@@ -22,7 +24,6 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <label htmlFor="title">Welcome back</label>
             <label htmlFor="subtitle">Log in to verify account</label>
-
 
             <label htmlFor="username">Username</label>
             <input
@@ -41,11 +42,13 @@ function Login() {
                 className="password-input"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                minLength={8}
             />
             <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}></button>
             <button type="submit">Log in</button>
+            {isLogin ? "Don't have an account?" : "Already have an account?"}
         </form>
     )
 }
