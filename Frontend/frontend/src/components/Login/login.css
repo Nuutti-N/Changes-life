@@ -38,3 +38,46 @@ form {
     background: white;
     border-radius: 12px;
 }
+
+
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(900px 500px at 80% 40%, #ecfeff 0%, transparent 55%),
+        #f8fafc;
+
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    background: white;
+
+}
+
+
+.auth-header h1 {
+    margin: 0px;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+
+}
+
+.auth-header p {
+    margin: 6px 0 18px;
+    font-size: 14px;
+    color: #0f172a;
+
+}
+
+
+Label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f172a;
+}

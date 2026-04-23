@@ -2,6 +2,7 @@ import { useState } from "react"
 import api from "../api/client"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import "../components/Login/login.css"
+import { Eye, EyeOff } from "lucide-react"
 
 function Login() {
     const navigate = useNavigate()
@@ -21,35 +22,41 @@ function Login() {
         navigate("/analyze")
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Welcome back</label>
-            <label htmlFor="subtitle">Log in to verify account</label>
-
-            <label htmlFor="username">Username</label>
-            <input
-                type="text"
-                placeholder="username"
-                className="username-input"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <button type="button" className="forgot-link">Forgot password</button>
-            <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                className="password-input"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                minLength={8}
-            />
-            <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}></button>
-            <button type="submit">Log in</button>
-            {isLogin ? "Don't have an account?" : "Already have an account?"}
-        </form>
+        <div className="auth-page">
+            <form className="auth-card" onSubmit={handleSubmit}>
+                <header className="auth-header">
+                    <h1>Welcome back</h1>
+                    <p>Log in to verify your account</p>
+                </header>
+                <label htmlFor="username">Username</label>
+                <input
+                    id="username"
+                    type="text"
+                    placeholder="username"
+                    className="username-input"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                />
+                <div className="password-row">
+                    <label htmlFor="password">Password</label>
+                    <button type="button" className="link">Forgot password</button>
+                </div>
+                <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    className="password-input"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    minLength={8}
+                />
+                <button
+                    type="button"
+                    className="password-toggle" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
+                <button type="submit">Log in</button>
+                {isLogin ? "Don't have an account?" : "Already have an account?"}
+            </form>
+        </div>
     )
 }
 
