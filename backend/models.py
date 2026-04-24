@@ -24,12 +24,12 @@ class Token(BaseModel):
     refresh_token: str
 
 
-class TokenPayload(SQLModel):
+class TokenPayload(BaseModel):
     sub: str = None  # Username or Id
     exp: int = None  # Expiration
 
 
-class SystemUser(SQLModel):
+class SystemUser(BaseModel):
     id: int
     username: str
 
