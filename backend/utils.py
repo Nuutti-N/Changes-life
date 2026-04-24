@@ -24,7 +24,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:  # When 
 
 
 # After succesful login, send this to frontend
-def create_access_token(subject: Union[str, Any], expires_delta: int = None):
+def create_access_token(subject: Union[str, Any], expires_delta: timedelta = None):
     if expires_delta is not None:
         # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(timezone.utc) + expires_delta
@@ -39,7 +39,7 @@ def create_access_token(subject: Union[str, Any], expires_delta: int = None):
 # After succesful login, send this too
 
 
-def create_refresh_token(subject: Union[str, Any], expires_delta: int = None):
+def create_refresh_token(subject: Union[str, Any], expires_delta: timedelta = None):
     if expires_delta is not None:
         # UTC is little bit risk, because its work only 3.11 up versions. I recommend use timezone.utc, but risk to risk
         expires_delta = datetime.now(timezone.utc) + expires_delta
