@@ -51,19 +51,21 @@ function Login() {
                         <button type="button" className="forgot-link">Forgot password</button>
                     </div>
                 </div>
-                <div className="password-wrapper"></div>
-                <input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="••••••••"
-                    className="password-input"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    minLength={8}
-                />
-                <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
+                <div className="password-wrapper">
+                    <input
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="••••••••"
+                        className="password-input"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        minLength={8}
+                    />
+                    <button
+                        type="button"
+                        className="hide-button"
+                        onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
+                </div>
                 {error &&
                     <p className="auth-error">{error}</p>
                 }

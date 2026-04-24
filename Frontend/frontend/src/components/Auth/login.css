@@ -113,14 +113,34 @@ Label {
     color: hsl(222, 84%, 4.9%);
 }
 
-.password-wrapper {
-    position: relative;
-}
+
 
 .password-wrapper {
+    position: relative;
     width: 100%;
     padding-right: 40px;
     box-sizing: border-box;
+}
+
+.hide-button {
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: hsl(215, 16%, 47%);
+
+}
+
+.hide-button:hover {
+    color: hsl(222, 84%, 4.9%)
+}
+
+.hide-button svg {
+    height: 16px;
+    width: 16px;
 }
 
 .auth-error {
