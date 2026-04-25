@@ -47,7 +47,7 @@ async def register(data: UserAuth, session: Session = Depends(get_session)):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Error during signup:", e, exc_info=True)
+        logger.error("Error during signup: %s", e, exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
