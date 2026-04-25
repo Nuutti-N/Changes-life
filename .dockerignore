@@ -35,5 +35,4 @@ Frontend/
 # Docs and config
 Procfile
 docker-compose.yml
-dockerfile
 *.md
