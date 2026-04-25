@@ -1,4 +1,5 @@
 import logging  # gives tools to make logging
+from logging.handlers import RotatingFileHandler
 import sys
 
 
@@ -14,8 +15,8 @@ formatter = logging.Formatter(
 )
 console_handler.setFormatter(formatter)
 
-# File logs (rotating, so it doesn't grow forever)
-file_handler = logging.FileHandler("app.log")
+# Add rotatingFileHandler, that if hit limit start new.
+file_handler = RotatingFileHandler("app.log", maxBytes=10000, backupCount=3)
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 
