@@ -112,7 +112,7 @@ async def get_my_facts(current_user=Depends(get_current_user), limit: int = Quer
 async def delete_my_facts(fact_id: int = Path(ge=1), current_user=Depends(get_current_user)):
     try:
         logger.info(
-            "delete_history_unexpected_response user_id=%s fact_id=%s", current_user.id, fact_id)
+            "delete_history_requested user_id=%s fact_id=%s", current_user.id, fact_id)
         data = supabase.table("fact_checks").delete().eq(
             "id", fact_id).eq("user_id", current_user.id).execute()
         if data.data is None:
