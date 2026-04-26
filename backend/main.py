@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from backend.users import router as users_router
 from backend.routers import router as routers
+from backend.health import router as health
 from slowapi.errors import RateLimitExceeded
 from backend.rate_limiter import limiter
 from contextlib import asynccontextmanager
@@ -34,6 +35,7 @@ app.add_middleware(
 
 app.include_router(users_router)
 app.include_router(routers)
+app.include_router(health)
 
 app.state.limiter = limiter
 
