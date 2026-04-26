@@ -158,7 +158,7 @@ The user is learning React step-by-step. Do not write frontend code for them —
 - 🔜 lesson 12 - Finish the History page - complete the MVP loop. ✅
 - 🔜 lesson 13 - add <PrivateRoute> - protect/analyze and/history. ✅ 
 - 🔜 lessons 14 - add logout + show current user - essential ux ✅ 
-
+- Next should be do, signup, what need, error state ✅, try/catch in handlesubmit, same classnames as login for styling, faster. Not need forgot password. different text. 
 
 
 **Teaching style reminders:**
