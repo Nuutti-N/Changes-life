@@ -20,7 +20,7 @@ async def welcome():
 
 
 @router.post("/chat", tags=["verify"])
-@limiter.limit("5/minute")
+@limiter.limit("1/minute")
 async def verify_text(request: Request, user_message: str = Body(min_length=1, max_length=2000), current_user=Depends(get_current_user)):
     try:
         logger.info("chat_request user_id=%s message_len=%s",
@@ -39,7 +39,7 @@ async def verify_text(request: Request, user_message: str = Body(min_length=1, m
 
 
 @router.post("/analyze", tags=["verify"])
-@limiter.limit("5/minute")
+@limiter.limit("1/minute")
 async def verify_fact(request: Request, text: str = Body(min_length=5, max_length=2000), current_user=Depends(get_current_user)):
     try:
         logger.info("Fact check requested by user user_id=%s claim=%s",
