@@ -1,0 +1,261 @@
+/* selector {
+    property: value;
+} */
+
+
+button {
+    height: 44px;
+    gap: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+
+
+}
+
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.auth-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    color: #020817;
+    margin: 0;
+}
+
+.auth-subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    color: hsl(215, 16%, 47%);
+}
+
+
+Label {
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+
+
+.username-input {
+    height: 40px;
+    padding: 12px;
+    border: 1px solid hsl(214, 32%, 91%);
+    border-radius: 7px;
+    width: 100%;
+
+}
+
+
+.password-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+    color: #0f172a;
+
+}
+
+.password-input {
+    height: 40px;
+    padding: 12px;
+    border: 1px solid hsl(214, 32%, 91%);
+    border-radius: 7px;
+    width: 100%;
+
+}
+
+.forgot-link {
+    font-size: 12px;
+    color: hsl(215, 16%, 47%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    transition: color 0.15s ease;
+}
+
+.forgot-link:hover {
+    color: hsl(222, 84%, 4.9%);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.hide-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: hsl(215, 16%, 47%);
+
+}
+
+.hide-button:hover {
+    color: hsl(222, 84%, 4.9%)
+}
+
+.hide-button svg {
+    height: 16px;
+    width: 16px;
+}
+
+.auth-error {
+    color: #dc2626;
+    font-size: 13px;
+    margin: 0;
+    width: 100%;
+}
+
+.auth-submit {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: hsl(234, 89%, 58%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.auth-submit:hover {
+    transition: background-color 0.15s ease;
+    background-color: hsl(234, 89%, 40%);
+}
+
+.auth-submit svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.auth-divider .line {
+    flex: 1;
+    height: 1px;
+    background-color: hsl(214, 32%, 91%)
+}
+
+.auth-divider span {
+    font-size: 12px;
+    color: hsl(215, 16%, 47%);
+}
+
+.social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+.social-btn {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid hsl(214, 32%, 91%);
+    border-radius: 6px;
+    background: hsl(0, 0%, 100%);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    color: hsl(222, 84%, 4.9%);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.social-btn:hover {
+    background-color: hsl(210, 40%, 96%);
+    border-color: hsl(214, 32%, 85%);
+}
+
+.social-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.auth-toggle {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.auth-no {
+    font-size: 14px;
+    color: hsl(215, 16%, 47%);
+}
+
+.auth-link {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    transition: text-decoration 0.15s ease;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: hsl(222, 84%, 4.9%)
+}
