@@ -36,3 +36,7 @@ class SystemUser(BaseModel):
 
 class RefreshRequest(BaseModel):
     refresh_token: str
+
+
+class HealthCheck(BaseModel):
+    status: str = "OK"
