@@ -27,7 +27,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://localhost:5173",
-        settings.VITE_API_URL,
+        # settings.VITE_API_URL,
     ],
     allow_credentials=True,
     allow_methods=["GET", "DELETE", "POST"],
