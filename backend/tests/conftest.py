@@ -2,6 +2,7 @@ import os
 from fastapi.testclient import TestClient
 import pytest
 from dotenv import load_dotenv
+
 load_dotenv()
 os.environ["test_database_url"] = os.getenv("test_database_url")
 os.environ["supabase_url"] = "http://localhost:54321"
@@ -24,3 +25,12 @@ def clean_test_db():
 def client():
     from backend.main import app
     return TestClient(app)
+
+
+@pytest.fixture()
+def auth_token(client):
+    client.post(
+        "/signup", json={"username": "testuser", "password": "testpass"})
+    response = client.post(
+        "/login", data={"username": "testuser", "password": "testpass"})
+    return response.json()["access_token"], response.json()["refresh_token"]
