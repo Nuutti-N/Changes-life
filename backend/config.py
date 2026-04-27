@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     # VITE_API_URL: str
 
     model_config = SettingsConfigDict(
-        env_file=".env", env_file_encoding="utf-8"
+        env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
 
 # If All found, start it, if any missing, show error
