@@ -3,6 +3,8 @@ import { useNavigate, useLocation, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../../api/client"
 import "./NavBar.css"
+import logo from "../../assets/test_logo.png"
+
 
 function NavBar() {
     const location = useLocation()
@@ -41,7 +43,7 @@ function NavBar() {
         <button onClick={handleLogout}>Log out</button>
         <header className="header">
             <div className="nav-left">
-                <a href="/">logo</a>
+                <a href="/"><img src={logo} alt="logo" /></a>
             </div>
             <div className="nav-middle">
                 <a href="/">Features</a>
