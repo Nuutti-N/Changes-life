@@ -3,12 +3,11 @@ import { useNavigate, useLocation, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../../api/client"
 import "./NavBar.css"
-import logo from "../../assets/test_logo.png"
+import logo from "../../assets/badge-test.png"
 
 
 function NavBar() {
     const location = useLocation()
-    if (location.pathname === "/login" || location.pathname === "/signup") return null
     const [user, setUser] = useState(null)
     const [Loading, setLoading] = useState(false)
     const [error, setError] = useState("")
@@ -34,9 +33,7 @@ function NavBar() {
         localStorage.removeItem('token')
         navigate("/login")
     }
-
-
-
+    if (location.pathname === "/login" || location.pathname === "/signup") return null
     return (<>
         {user &&
             <span>How can I help you, {user.username}</span>}
