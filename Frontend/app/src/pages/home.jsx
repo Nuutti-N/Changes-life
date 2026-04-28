@@ -12,8 +12,10 @@ function Home() {
                 In text. In code.</h1>
             <p> App uses advanced AI to fact-check claims, audit code, <br />
                 and surface the signals you need to trust what you read</p>
-            <Link to="/signup" className="hero-verify">Start verifying free <ArrowRight /> </Link>
-            <Link to="/" className="home-work">See how it works</Link>
+            <div className="hero-actions">
+                <Link to="/signup" className="hero-verify" >Start verifying free <ArrowRight /> </Link>
+                <Link to="/" className="hero-work">See how it works</Link>
+            </div>
 
 
 

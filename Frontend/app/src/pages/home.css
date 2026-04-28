@@ -22,6 +22,12 @@
     color: hsl(152, 60%, 40%);
 }
 
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
 .hero-verify {
     display: flex;
     align-items: center;
@@ -38,13 +44,16 @@
     height: 16px;
 }
 
-.home-work {
+.hero-work {
     display: flex;
     align-items: center;
     font-size: 14px;
-    font-weight: 500;
-    color: #000000;
-    background-color: hsl(0, 0%, 100%);
+    color: #ffffff;
+    border: 1px solid hsl(222 30% 20%);
     padding: 12px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
+}
+
+.hero-work:hover {
+    background-color: hsl(152, 50%, 30%);
 }
