@@ -21,3 +21,30 @@
 .hero-true {
     color: hsl(152, 60%, 40%);
 }
+
+.hero-verify {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    background-color: hsl(0, 0%, 100%);
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+
+.hero-verify svg {
+    width: 16px;
+    height: 16px;
+}
+
+.home-work {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    background-color: hsl(0, 0%, 100%);
+    padding: 12px 20px;
+    border-radius: 6px;
+}

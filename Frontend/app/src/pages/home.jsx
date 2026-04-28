@@ -10,7 +10,11 @@ function Home() {
             <a className="hero-badge" href="/" >AI-powered truth detection</a>
             <h1>Verify what's <em className="hero-true">true</em>.<br />
                 In text. In code.</h1>
+            <p> App uses advanced AI to fact-check claims, audit code, <br />
+                and surface the signals you need to trust what you read</p>
             <Link to="/signup" className="hero-verify">Start verifying free <ArrowRight /> </Link>
+            <Link to="/" className="home-work">See how it works</Link>
+
 
 
 
