@@ -2,6 +2,9 @@ import os
 from fastapi.testclient import TestClient
 import pytest
 from dotenv import load_dotenv
+from unittest.mock import patch, MagicMock
+import unittest
+
 
 load_dotenv()
 os.environ["test_database_url"] = os.getenv("test_database_url")
