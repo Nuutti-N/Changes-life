@@ -1,5 +1,5 @@
 
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import api from "../../api/client"
 import "./NavBar.css"
@@ -48,8 +48,9 @@ function NavBar() {
                 <a href="/">How it works</a>
             </div>
             <div className="nav-right">
-                <a href="/">Log in</a>
-                <a href="/">Get started</a>
+                <Link className="nav-login" to="/login">Log in</Link>
+
+                <Link className="nav-button" to="/signup">Get started</Link>
             </div>
         </header>
     </>
