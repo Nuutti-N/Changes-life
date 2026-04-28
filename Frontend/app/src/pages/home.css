@@ -57,3 +57,56 @@
 .hero-work:hover {
     background-color: hsl(152, 50%, 30%);
 }
+
+.section-divider {
+    border-top: 1px solid hsl(222 30% 20%);
+    margin-top: 150px;
+}
+
+.features {
+    padding: 100px 45px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.features-sub {
+    color: hsl(215 20% 65%);
+}
+
+.features-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.features-grid p {
+    color: hsl(215 20% 65%);
+}
+
+.features-card {
+    border: 1px solid hsl(222 30% 20%);
+    padding: 20px 40px;
+    border-radius: 20px;
+}
+
+.how-work {
+    padding: 100px 45px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.works-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.works-card p {
+    color: hsl(215 20% 65%);
+}
+
+.work-number {
+    color: hsl(152, 60%, 40%);
+}
