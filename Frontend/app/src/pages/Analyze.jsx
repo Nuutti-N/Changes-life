@@ -1,6 +1,6 @@
 import { useState } from "react"
 import api from "../api/client"
-
+import "./analyze.css"
 
 
 function Analyze() {
@@ -23,27 +23,32 @@ function Analyze() {
     }
 
 
-    return (<> <form onSubmit={handleSubmit}>
-        <textarea
-            value={text}
-            onChange={e => setText(e.target.value)}
+    return (
+        <div className="analyze-page">
+            <form className="analyze-card" onSubmit={handleSubmit}>
+                <textarea
+                    className="analyze-input"
+                    value={text}
+                    onChange={e => setText(e.target.value)}
 
-        />
-        <button type="submit" disabled={loading}>{loading ? "Analyzing..." : "Analyze"}</button>
-    </form>
-        {error &&
-            <p style={{ color: "red" }}>{error}</p>}
-        {results && (
-            <div>
-                <p>Score: {results.score}</p>
-                <p>Verdict: {results.verdict}</p>
-                <p>risks: {results.risks}</p>
-                <p>pros: {results.pros}</p>
-                <p>recommend: {results.recommend}</p>
-            </div>
-        )}
-
-    </>)
+                />
+                <div className="analyze-footer">
+                    <span >{text.length}/8000</span>
+                    <button className="analyze-btn" type="submit" disabled={loading}>{loading ? "Analyzing..." : "Analyze"}</button>
+                </div>
+            </form>
+            {error &&
+                <p style={{ color: "red" }}>{error}</p>}
+            {results && (
+                <div>
+                    <p>Score: {results.score}</p>
+                    <p>Verdict: {results.verdict}</p>
+                    <p>risks: {results.risks}</p>
+                    <p>pros: {results.pros}</p>
+                    <p>recommend: {results.recommend}</p>
+                </div>
+            )}
+        </div>)
 }
 
 
