@@ -28,7 +28,7 @@ function Analyze() {
     return (
         <div className="analyze-page">
             <div className="analyze-text">
-                <h1 className="analyze-title">Analyze</h1>
+                <h1 className="analyze-title">Analyze.</h1>
                 <p className="analyze-subtitle">Paste any text or code. Get an AI verdict in seconds</p>
             </div>
             <form className="analyze-card" onSubmit={handleSubmit}>
