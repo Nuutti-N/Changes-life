@@ -4,7 +4,26 @@
     align-items: center;
     text-align: center;
     min-height: 100vh;
+    flex-direction: column;
+}
 
+.analyze-text {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.analyze-title {
+    font-family: serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+}
+
+.analyze-subtitle {
+    color: #6b7280;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
 }
 
 .analyze-card {
@@ -13,7 +32,6 @@
     padding: 50px 40px;
     width: 550px;
     background-color: hsl(221 47% 10%);
-
 }
 
 .analyze-input {
@@ -43,7 +61,16 @@
     margin-right: 8px;
 }
 
-.type-active {
-    background-color: hsl(white);
 
+.Analyze-type-btn {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    color: hsl(215 16% 47%);
+    cursor: pointer;
+}
+
+.type-active {
+    border: 1px solid white;
+    color: white;
 }
