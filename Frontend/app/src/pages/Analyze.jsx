@@ -27,15 +27,17 @@ function Analyze() {
 
     return (
         <div className="analyze-page">
-            {/* <h1 className="analyze-title">Analyze</h1>
-            <p className="analyze-title">Paste any text or code. Get an AI verdict in seconds</p> */}
+            <div className="analyze-text">
+                <h1 className="analyze-title">Analyze</h1>
+                <p className="analyze-subtitle">Paste any text or code. Get an AI verdict in seconds</p>
+            </div>
             <form className="analyze-card" onSubmit={handleSubmit}>
                 <button type="button" onClick={() => setType("text")}
-                    className={"Analyze-type-btn" + type === "text" ? "type-active" : ""}>
+                    className={"Analyze-type-btn " + (type === "text" ? "type-active" : "")}>
                     Text
                 </button>
                 <button type="button" onClick={() => setType("code")}
-                    className={"Analyze-type-btn" + type === "code" ? "type-active" : ""}>
+                    className={"Analyze-type-btn " + (type === "code" ? "type-active" : "")}>
                     Code
                 </button>
                 <textarea
